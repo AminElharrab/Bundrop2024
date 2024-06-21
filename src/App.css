@@ -1,0 +1,155 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: lightslategray;
+  color: rgb(0, 0, 0);
+  padding: 1rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  margin: 0 1rem;
+}
+
+nav a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+.hero {
+  text-align: center;
+  padding: 4rem;
+}
+
+.hero img {
+  max-width: 100%;
+  height: auto;
+}
+
+.menu {
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.menu .filters button {
+  margin: 0.5rem;
+  border-radius: 15px;
+}
+.menu-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+}
+
+.menu-item {
+  border: 1px solid lightslategray;
+  padding: 1rem;
+  margin: 1rem;
+  text-align: center;
+  flex: 1 1 calc(33.33% - 2rem);
+  box-sizing: border-box;
+}
+
+.menu-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.cart {
+  padding: 2rem;
+}
+
+.cart-item {
+  border-bottom: 1px solid #da8686;
+  padding: 1rem 0;
+}
+
+.confirmation {
+  padding: 2rem;
+}
+.checkout {
+  padding: 2rem;
+  background-color: #c0b3b3;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.checkout h2 {
+  color: #000000;
+  margin-bottom: 1rem;
+}
+
+.checkout form {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout input {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.checkout button {
+  padding: 0.5rem;
+  background-color: #2f7336;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.checkout button:hover {
+  background-color: #555;
+}
+.hero img {
+  width: 150px;
+  height: auto;
+}
+
+.payment-methods {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.payment-methods button {
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #ddd;
+  border: none;
+  cursor: pointer;
+}
+
+.payment-methods button.selected {
+  background-color: #333;
+  color: #fff;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}

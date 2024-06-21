@@ -1,0 +1,265 @@
+{
+  "menu": [
+    {
+      "id": "1",
+      "title": "Classic Burger",
+      "price": 5.99,
+      "category": "burgers",
+      "description": "Our classic beef burger with bacon, pickles, tomato and lettuce",
+      "image": "src/assets/img/burger-1.png"
+    },
+    {
+      "id": "2",
+      "title": "Black-Bun Burger",
+      "price": 5.99,
+      "category": "burgers",
+      "description": "Our unique black-bun chicken burger with bacon and pickles",
+      "image": "src/assets/img/burger-2.png"
+    },
+    {
+      "id": "3",
+      "title": "Double beef patty",
+      "price": 5.49,
+      "category": "burgers",
+      "description": "Our burger with a fat bun, extra meat, pickles and onions",
+      "image": "src/assets/img/burger-3.png"
+    },
+    {
+      "id": "4",
+      "title": "Cheesy double beef patty",
+      "price": 5.49,
+      "category": "burgers",
+      "description": "Our cheesy burger with double patties and caramelized onion",
+      "image": "src/assets/img/burger-4.png"
+    },
+    {
+      "id": "5",
+      "title": "Big Juicy ",
+      "price": 5.49,
+      "category": "burgers",
+      "description": "Our juicy burger loaded with meat and cheese",
+      "image": "src/assets/img/burger-5.png"
+    },
+    {
+      "id": "6",
+      "title": "Plant-based Burger",
+      "price": 6.99,
+      "category": "burgers",
+      "description": "Our newly introduced plant-based burger",
+      "image": "src/assets/img/burger-6.png"
+    },
+    {
+      "id": "7",
+      "title": "Forest Burger",
+      "price": 7.49,
+      "category": "burgers",
+      "description": "Our burger with caramelized mushrooms with some pickled onions",
+      "image": "src/assets/img/burger-7.png"
+    },
+    {
+      "id": "8",
+      "title": "Gluten-free Burger",
+      "price": 8.49,
+      "category": "burgers",
+      "description": "Our gluten-free burger loaded with pickles, bacon and a delicious patty",
+      "image": "src/assets/img/burger-8.png"
+    },
+    {
+      "id": "9",
+      "title": "Fat Boy",
+      "price": 7.99,
+      "category": "burgers",
+      "description": "Our Fat Boy burger loaded with meat and cheese",
+      "image": "src/assets/img/burger-9.png"
+    },
+    {
+      "id": "10",
+      "title": "Regular Fries",
+      "price": 3.49,
+      "category": "sides",
+      "description": "Regular fries made from fresh potato",
+      "image": "src/assets/img/fries-1.png"
+    },
+    {
+      "id": "11",
+      "title": "Sweet Potato Fries",
+      "price": 3.99,
+      "category": "sides",
+      "description": " Fresh sweet potato fries",
+      "image": "src/assets/img/fries-2.png"
+    },
+    {
+      "id": "12",
+      "title": "Chocolate Mix",
+      "price": 2.49,
+      "category": "drinks",
+      "description": "Milkshake mixed with Oreo and milk chocolate",
+      "image": "src/assets/img/milkshake-1.png"
+    },
+    {
+      "id": "13",
+      "title": "Frida",
+      "price": 1.49,
+      "category": "drinks",
+      "description": "Soda with lemon flavour",
+      "image": "src/assets/img/soda-1.png"
+    },
+    {
+      "id": "14",
+      "title": "Olibop",
+      "price": 1.49,
+      "category": "drinks",
+      "description": "Soda with strawberry and vanilla flavour",
+      "image": "src/assets/img/soda-2.png"
+    },
+    {
+      "id": "15",
+      "title": "Calpis Water",
+      "price": 1.49,
+      "category": "drinks",
+      "description": "Fizzy Water",
+      "image": "src/assets/img/soda-3.png"
+    },
+    {
+      "id": "16",
+      "title": "Positive Energy",
+      "price": 1.49,
+      "category": "drinks",
+      "description": "Sugar-Free energy drink with coconut flavour",
+      "image": "src/assets/img/soda-4.png"
+    }
+  ],
+  "receipts": [
+    {
+      "id": "46296",
+      "orderDetails": [
+        {
+          "id": "5",
+          "title": "Big Juicy ",
+          "price": 5.49,
+          "quantity": 2
+        }
+      ],
+      "totalAmount": 10.98,
+      "name": "Mohammed Amin El Harrab",
+      "city": "Malmö Väster/Öster",
+      "street": "Södra Tennisgränd 3, lgh 1306",
+      "phoneNumber": "0761671009",
+      "paymentMethod": "swish"
+    },
+    {
+      "id": "178845",
+      "orderDetails": [
+        {
+          "id": "3",
+          "title": "Double beef patty",
+          "price": 5.49,
+          "quantity": 2
+        }
+      ],
+      "totalAmount": 10.98,
+      "name": "Elias Danjal",
+      "city": "ad",
+      "street": "asdds",
+      "cardNumber": "1111 1111 1111 1111",
+      "cvv": "222",
+      "expiryDate": "22/22",
+      "phoneNumber": "0761671009",
+      "paymentMethod": "card"
+    },
+    {
+      "id": "603675",
+      "orderDetails": [
+        {
+          "id": "2",
+          "title": "Black-Bun Burger",
+          "price": 5.99,
+          "quantity": 2
+        }
+      ],
+      "totalAmount": 11.98,
+      "name": "Mohammed Amin El Harrab",
+      "city": "Malmö Väster/Öster",
+      "street": "Södra Tennisgränd 3, lgh 1306",
+      "phoneNumber": "0761671009",
+      "paymentMethod": "swish"
+    },
+    {
+      "id": "800232",
+      "orderDetails": [],
+      "totalAmount": 0,
+      "name": "Mohammed Amin El Harrab",
+      "city": "Malmö Väster/Öster",
+      "street": "Södra Tennisgränd 3, lgh 1306",
+      "phoneNumber": "0761671009",
+      "paymentMethod": "swish"
+    },
+    {
+      "id": "80485",
+      "orderDetails": [
+        {
+          "id": "2",
+          "title": "Black-Bun Burger",
+          "price": 5.99,
+          "quantity": 6
+        }
+      ],
+      "totalAmount": 35.94,
+      "name": "Elias Danjal",
+      "city": "ad",
+      "street": "asdds",
+      "cardNumber": "1111 1111 1111 1111",
+      "cvv": "222",
+      "expiryDate": "22/22",
+      "phoneNumber": "0761671009",
+      "paymentMethod": "card"
+    },
+    {
+      "id": "435427",
+      "orderDetails": [],
+      "totalAmount": 0,
+      "name": "das",
+      "city": "asd",
+      "street": "adsa",
+      "phoneNumber": "07616781009",
+      "paymentMethod": "swish"
+    },
+    {
+      "id": "602696",
+      "orderDetails": [
+        {
+          "id": "2",
+          "title": "Black-Bun Burger",
+          "price": 5.99,
+          "quantity": 2
+        }
+      ],
+      "totalAmount": 11.98,
+      "name": "Elias Danjal",
+      "city": "ad",
+      "street": "asdds",
+      "phoneNumber": "0761671009",
+      "paymentMethod": "swish"
+    },
+    {
+      "id": "344687",
+      "orderDetails": [
+        {
+          "id": "3",
+          "title": "Double beef patty",
+          "price": 5.49,
+          "quantity": 2
+        }
+      ],
+      "totalAmount": 10.98,
+      "name": "Elias Danjal",
+      "city": "ad",
+      "street": "asdds",
+      "cardNumber": "1111 1111 1111 1111",
+      "cvv": "111",
+      "expiryDate": "11/11",
+      "phoneNumber": "0761671009",
+      "paymentMethod": "card"
+    }
+  ]
+}
