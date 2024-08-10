@@ -1,33 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-const Confirmation = ({ orderDetails }) => {
-  const estimatedTime = Math.floor(Math.random() * 11) + 20;
+const ConfirmationPage = () => {
+  const [receipt, setReceipt] = useState(null);
 
-  const totalAmount = orderDetails.reduce(
-    (total, item) => total + item.price * item.quantity,
-    0
-  );
+  const estimatedDeliveryTime = receipt.estimatedDeliveryTime
+    ? new Date(receipt.estimatedDeliveryTime).toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      })
+    : null;
 
   return (
-    <div>
+    <div className="confirmation">
       <h2>Thank you for your order!</h2>
-      <p>
-        Your order is on its way and will arrive in approximately{" "}
-        {estimatedTime} minutes.
-      </p>
-      <h3>Order Summary:</h3>
+      <p>Your order details:</p>
       <ul>
-        {orderDetails.map((item) => (
+        {receipt.orderDetails.map((item) => (
           <li key={item.id}>
-            <p>{item.title}</p>
-            <p>Quantity: {item.quantity}</p>
-            <p>Price: ${item.price.toFixed(2)}</p>
+            {item.title} - Quantity: {item.quantity}
           </li>
         ))}
       </ul>
       <h3>Total Amount: ${totalAmount.toFixed(2)}</h3>
+      {estimatedDeliveryTime && (
+        <p>Your order will arrive by approximately {estimatedDeliveryTime}.</p>
+      )}
     </div>
   );
 };
 
-export default Confirmation;
+export default ConfirmationPage;

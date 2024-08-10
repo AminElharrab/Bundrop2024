@@ -42,7 +42,6 @@ const App = () => {
   const removeFromCart = (id) => {
     setCart(cart.filter((cartItem) => cartItem.id !== id));
   };
-
   const placeOrder = (formData) => {
     const orderData = cart.map((item) => ({
       id: item.id,
@@ -55,10 +54,17 @@ const App = () => {
       0
     );
     const receiptId = Math.floor(Math.random() * 1000000).toString();
+
+    const orderTime = new Date();
+    const estimatedDeliveryTime = new Date(
+      orderTime.getTime() + 30 * 60000
+    ).toISOString();
+
     const receipt = {
       id: receiptId,
       orderDetails: orderData,
       totalAmount,
+      estimatedDeliveryTime,
       ...formData,
     };
 

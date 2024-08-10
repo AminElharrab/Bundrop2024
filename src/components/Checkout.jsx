@@ -11,6 +11,7 @@ const Checkout = ({ cart, placeOrder }) => {
     cvv: "",
     expiryDate: "",
     phoneNumber: "",
+    paymentMethod: "card",
   });
   const [errors, setErrors] = useState({});
 
@@ -53,21 +54,25 @@ const Checkout = ({ cart, placeOrder }) => {
 
   const validate = () => {
     const tempErrors = {};
+    if (cart.length === 0) {
+      tempErrors.cart =
+        "Your cart is empty. Please add items before checking out.";
+    }
     if (!formData.name) tempErrors.name = "Please enter your name.";
     if (!formData.city) tempErrors.city = "City cannot be empty.";
     if (!formData.street) tempErrors.street = "Street is required.";
 
-    const cardNumber = formData.cardNumber.replace(/\s+/g, "");
-    if (!/^\d{16}$/.test(cardNumber)) {
-      tempErrors.cardNumber = "Card Number must be 16 digits.";
-    }
-
-    if (!/^\d{3}$/.test(formData.cvv)) {
-      tempErrors.cvv = "CVV must be 3 digits.";
-    }
-
-    if (!/^\d{2}\/\d{2}$/.test(formData.expiryDate)) {
-      tempErrors.expiryDate = "Expiry Date must be in MM/YY format.";
+    if (formData.paymentMethod === "card") {
+      const cardNumber = formData.cardNumber.replace(/\s+/g, "");
+      if (!/^\d{16}$/.test(cardNumber)) {
+        tempErrors.cardNumber = "Card Number must be 16 digits.";
+      }
+      if (!/^\d{3}$/.test(formData.cvv)) {
+        tempErrors.cvv = "CVV must be 3 digits.";
+      }
+      if (!/^\d{2}\/\d{2}$/.test(formData.expiryDate)) {
+        tempErrors.expiryDate = "Expiry Date must be in MM/YY format.";
+      }
     }
 
     if (!formData.phoneNumber) {
@@ -83,14 +88,35 @@ const Checkout = ({ cart, placeOrder }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      const receiptId = placeOrder({ ...formData, paymentMethod: "card" });
+      const receiptId = placeOrder(formData);
       navigate(`/confirmation/${receiptId}`);
     }
   };
 
+  const handlePaymentMethodChange = (method) => {
+    setFormData((prevData) => ({ ...prevData, paymentMethod: method }));
+  };
+
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
   return (
     <section className="checkout">
       <h2>Checkout</h2>
+      {errors.cart && <p className="error">{errors.cart}</p>}
+      <section className="cart-summary">
+        <h3>Order Summary</h3>
+        {cart.map((item) => (
+          <div key={item.id}>
+            <p>
+              {item.title} x {item.quantity}: $
+              {(item.price * item.quantity).toFixed(2)}
+            </p>
+          </div>
+        ))}
+        <p>
+          <strong>Total: ${total.toFixed(2)}</strong>
+        </p>
+      </section>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -119,32 +145,59 @@ const Checkout = ({ cart, placeOrder }) => {
         />
         {errors.street && <p className="error">{errors.street}</p>}
 
-        <input
-          type="text"
-          name="cardNumber"
-          placeholder="Card Number"
-          value={formData.cardNumber}
-          onChange={handleCardNumberChange}
-        />
-        {errors.cardNumber && <p className="error">{errors.cardNumber}</p>}
+        <div>
+          <label>
+            <input
+              type="radio"
+              name="paymentMethod"
+              value="card"
+              checked={formData.paymentMethod === "card"}
+              onChange={() => handlePaymentMethodChange("card")}
+            />
+            Card
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="paymentMethod"
+              value="swish"
+              checked={formData.paymentMethod === "swish"}
+              onChange={() => handlePaymentMethodChange("swish")}
+            />
+            Swish
+          </label>
+        </div>
 
-        <input
-          type="text"
-          name="cvv"
-          placeholder="CVV"
-          value={formData.cvv}
-          onChange={handleSecurityCodeChange}
-        />
-        {errors.cvv && <p className="error">{errors.cvv}</p>}
+        {formData.paymentMethod === "card" && (
+          <>
+            <input
+              type="text"
+              name="cardNumber"
+              placeholder="Card Number"
+              value={formData.cardNumber}
+              onChange={handleCardNumberChange}
+            />
+            {errors.cardNumber && <p className="error">{errors.cardNumber}</p>}
 
-        <input
-          type="text"
-          name="expiryDate"
-          placeholder="Expiry Date (MM/YY)"
-          value={formData.expiryDate}
-          onChange={handleExpiryDateChange}
-        />
-        {errors.expiryDate && <p className="error">{errors.expiryDate}</p>}
+            <input
+              type="text"
+              name="cvv"
+              placeholder="CVV"
+              value={formData.cvv}
+              onChange={handleSecurityCodeChange}
+            />
+            {errors.cvv && <p className="error">{errors.cvv}</p>}
+
+            <input
+              type="text"
+              name="expiryDate"
+              placeholder="Expiry Date (MM/YY)"
+              value={formData.expiryDate}
+              onChange={handleExpiryDateChange}
+            />
+            {errors.expiryDate && <p className="error">{errors.expiryDate}</p>}
+          </>
+        )}
 
         <input
           type="text"

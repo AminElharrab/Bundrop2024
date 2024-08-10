@@ -35,6 +35,13 @@ const ConfirmationPage = () => {
     0
   );
 
+  const estimatedDeliveryTime = receipt.estimatedDeliveryTime
+    ? new Date(receipt.estimatedDeliveryTime).toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      })
+    : null;
+
   return (
     <div className="confirmation">
       <h2>Thank you for your order!</h2>
@@ -47,6 +54,9 @@ const ConfirmationPage = () => {
         ))}
       </ul>
       <h3>Total Amount: ${totalAmount.toFixed(2)}</h3>
+      {estimatedDeliveryTime && (
+        <p>Your order will arrive by approximately {estimatedDeliveryTime}.</p>
+      )}
     </div>
   );
 };

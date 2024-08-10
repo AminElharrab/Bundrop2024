@@ -27,16 +27,10 @@ const CartPage = ({ cart, updateQuantity, removeFromCart, placeOrder }) => {
       </div>
       <div className="payment-methods">
         <button
-          onClick={() => handleCheckout("swish")}
-          className={paymentMethod === "swish" ? "selected" : ""}
-        >
-          Proceed to Checkout With Swish
-        </button>
-        <button
           onClick={() => handleCheckout("card")}
           className={paymentMethod === "card" ? "selected" : ""}
         >
-          Proceed to Checkout With Card
+          Proceed to Checkout
         </button>
       </div>
       {paymentMethod === "swish" && (
